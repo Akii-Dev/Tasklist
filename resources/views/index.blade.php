@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body class="bg-gradient-to-br from-lime-300 to-rose-300 bg-cover bg-no-repeat h-max">
+    <p>(@dump($tasks))</p>
     {{-- <body class="bg-gradient-to-br from-lime-600 to-rose-600 bg-cover bg-no-repeat h-max"> --}}
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md mt-12">
 
@@ -21,10 +22,15 @@
                 </div>
 
             </form>
-            @for ($i = 0; $i < 10; $i++)
+            @foreach ($tasks as $task)
             <div class="p-1 flex content-around px-4 mx-4 py-2 my-2 bg-red">
                 <input type="checkbox" name="" id="">
-                <p>testing Lorem ipsum dolor sit.</p>
+                    @if ($task["is_completed"] == 1)
+                    <p class="line-through">
+                    @else
+                    <p>
+                    @endif
+                {{$task["description"]}}</p>
 
                 <a href="edit?id=">
                     <img class="h-full w-6 p-auto mr-2" src="/images/edit.svg" alt="">
@@ -34,7 +40,7 @@
 
                 </button>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 </body>
