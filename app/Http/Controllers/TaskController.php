@@ -15,4 +15,14 @@ class TaskController extends Controller
         return view('index', ['tasks' => $tasks]);
     }
 
+    public function edit($id)
+    {
+            $task = Task::find($id);
+            if ($task === null) {
+                return "nuh";
+            } else {
+                return view('edit', ['task' => $task]);
+            }
+    }
+
 }
