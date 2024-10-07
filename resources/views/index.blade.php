@@ -9,17 +9,18 @@
     <title>Document</title>
 </head>
 
-<body class="bg-gradient-to-br from-lime-300 to-rose-300 bg-cover bg-no-repeat h-max">
+<body class="bg-gradient-to-br from-lime-300 to-rose-300 bg-cover bg-no-repeat h-max"> 
     <p>(@dump($tasks))</p>
     {{-- <body class="bg-gradient-to-br from-lime-600 to-rose-600 bg-cover bg-no-repeat h-max"> --}}
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md mt-12">
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
 
         <div class="bg-white/[.75] px-4 py-8 sm:rounded-lg sm:px-10 backdrop-blur-[1px] shadow-2xl shadow-white/50">
             <H1 class="text-2xl">Todo list</H1>
-            <form class="space-y-6" method="POST" action="../user/login">
+            <form class="space-y-6" method="POST" action="create">
+                @csrf <!-- {{ csrf_field() }} -->
                 <div>
                     <div class="mt-2">
-                        <input id="name" name="name" type="text" placeholder="Add a new task" value=""
+                        <input id="description" name="description" type="text" placeholder="Add a new task" value=""
                             required
                             class="block w-full rounded-md border-0 py-1.5 px-1 text-gray-100 shadow-sm ring-1 ring-inset ring-gray-900 placeholder:text-gray-300 bg-gray-500/[.25] focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6">
                     </div>
@@ -38,13 +39,16 @@
                         {{ $task['description'] }}</p>
                     </div>
                     <div class="flex">
-                        <a href="edit?id=">
+                        <a href="{{$task["id"]}}/edit ">
                             <img class="h-full w-6 p-auto mr-2" src="/images/edit.svg" alt="">
                         </a>
-                        <button id="delete-knop" class="mx-2">
-                            <img class="h-6 w-6 p-auto pointer-events-none" src="/images/trash.png" alt="">
+                        {{-- <button id="delete-knop" class="mx-2"> --}}
+                        <a href="{{$task["id"]}}/destroy ">
 
-                        </button>
+                            <img class="h-6 w-6 p-auto pointer-events-none" src="/images/trash.png" alt="">
+                        </a>
+
+                        {{-- </button> --}}
                     </div>
                 </div>
             @endforeach

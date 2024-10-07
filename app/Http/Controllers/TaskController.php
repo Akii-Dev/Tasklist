@@ -19,10 +19,29 @@ class TaskController extends Controller
     {
             $task = Task::find($id);
             if ($task === null) {
-                return "nuh";
+                return "User ID niet gevonden";
             } else {
                 return view('edit', ['task' => $task]);
             }
+    }
+
+    public function create()
+    {
+        // return $_POST["name"];
+        Task::factory()->create([
+            'description' => $_POST["name"]
+        ]);
+        return $this->index();
+            
+    }
+
+    public function destroy()
+    {
+        return "destroy";
+    }
+
+    public function update()
+    {
     }
 
 }
