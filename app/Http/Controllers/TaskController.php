@@ -35,7 +35,7 @@ class TaskController extends Controller
             
     }
 
-    public function destroy()
+    public function destroy($id)
     {
         return "destroy";
     }

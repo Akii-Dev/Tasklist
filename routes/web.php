@@ -17,16 +17,16 @@ Route::get(
     [TaskController::class, 'edit']
 )->name('tasks.edit');
 
+Route::delete(
+     '/destroy/{id}',
+    [TaskController::class, 'destroy']
+)->name('tasks.destroy');
+
 Route::post(
     '/{id}/edit',
     [TaskController::class, 'update']
 )->name('tasks.update');
-
-Route::delete(
-    '/{id}/destroy',
-    [TaskController::class, 'destroy']
-)->name('tasks.destroy');
-
+   
 Route::post(
     '/create',
     [TaskController::class, 'create']

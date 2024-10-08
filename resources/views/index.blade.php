@@ -12,23 +12,23 @@
 <body class="bg-gradient-to-br from-lime-300 to-rose-300 bg-cover bg-no-repeat h-max"> 
     <p>(@dump($tasks))</p>
     {{-- <body class="bg-gradient-to-br from-lime-600 to-rose-600 bg-cover bg-no-repeat h-max"> --}}
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="mt-8 sm:mx-auto sm:w-full sm:w-3/5">
 
-        <div class="bg-white/[.75] px-4 py-8 sm:rounded-lg sm:px-10 backdrop-blur-[1px] shadow-2xl shadow-white/50">
-            <H1 class="text-2xl">Todo list</H1>
+        <div class="bg-white/[.75] px-4 py-8 rounded px-10 backdrop-blur-[1px] shadow-2xl shadow-white/50">
+            <H1 class="text-3xl">Todo list</H1>
             <form class="space-y-6" method="POST" action="create">
                 @csrf <!-- {{ csrf_field() }} -->
                 <div>
                     <div class="mt-2">
                         <input id="description" name="description" type="text" placeholder="Add a new task" value=""
                             required
-                            class="block w-full rounded-md border-0 py-1.5 px-1 text-gray-100 shadow-sm ring-1 ring-inset ring-gray-900 placeholder:text-gray-300 bg-gray-500/[.25] focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6">
+                            class="h-16 block w-full rounded text-xl border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-900 sm:leading-6">
                     </div>
                 </div>
 
             </form>
             @foreach ($tasks as $task)
-                <div class="p-1 flex justify-between px-4 mx-4 py-2 my-2 bg-red bg-red-100 rounded-xl shadow-sm">
+                <div class="p-1 flex justify-between px-4 mx-4 py-2 my-4 bg-red bg-red-100 rounded shadow-sm">
                     <div class="flex">
                         <input class="accent-pink-500 p-4 m-2" type="checkbox" name="" id="">
                         @if ($task['is_completed'] == 1)
@@ -43,7 +43,7 @@
                             <img class="h-full w-6 p-auto mr-2" src="/images/edit.svg" alt="">
                         </a>
                         {{-- <button id="delete-knop" class="mx-2"> --}}
-                        <a href="{{$task["id"]}}/destroy ">
+                        <a href="destroy/{{$task["id"]}}">
 
                             <img class="h-6 w-6 p-auto pointer-events-none" src="/images/trash.png" alt="">
                         </a>
