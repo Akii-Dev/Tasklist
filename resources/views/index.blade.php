@@ -12,7 +12,7 @@
 <body class="bg-gradient-to-br from-lime-300 to-rose-300 bg-cover bg-no-repeat h-max"> 
     <p>(@dump($tasks))</p>
     {{-- <body class="bg-gradient-to-br from-lime-600 to-rose-600 bg-cover bg-no-repeat h-max"> --}}
-    <div class="mt-8 sm:mx-auto sm:w-full sm:w-3/5">
+    <div class="mt-8 sm:mx-auto sm:w-full sm:lw-3/5">
 
         <div class="bg-white/[.75] px-4 py-8 rounded px-10 backdrop-blur-[1px] shadow-2xl shadow-white/50">
             <H1 class="text-3xl">Todo list</H1>
@@ -42,11 +42,18 @@
                         <a href="{{$task["id"]}}/edit ">
                             <img class="h-full w-6 p-auto mr-2" src="/images/edit.svg" alt="">
                         </a>
-                        {{-- <button id="delete-knop" class="mx-2"> --}}
-                        <a href="destroy/{{$task["id"]}}">
-
+                            <form action="destroy/{{$task["id"]}}" method="POST">
+                                @csrf
+                            <button>
                             <img class="h-6 w-6 p-auto pointer-events-none" src="/images/trash.png" alt="">
-                        </a>
+
+                            </button>
+                    
+                    
+                    
+                    
+                    
+                        </form>
 
                         {{-- </button> --}}
                     </div>

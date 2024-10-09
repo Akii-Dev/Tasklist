@@ -29,15 +29,22 @@ class TaskController extends Controller
     {
         // return $_POST["name"];
         Task::factory()->create([
-            'description' => $_POST["name"]
+            'description' => $_POST["description"]
         ]);
-        return $this->index();
+        return redirect('/');
             
     }
 
     public function destroy($id)
     {
-        return "destroy";
+        $task = Task::find($id);
+        if ($task === null) {
+            return "User ID niet gevonden";
+        } else {
+            $task->delete();
+        }
+        return redirect('/');
+
     }
 
     public function update()
