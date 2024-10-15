@@ -12,18 +12,23 @@ Route::get(
     [TaskController::class, 'index']
 )->name('tasks.index');
 
-Route::get(
-    '/{id}/edit',
-    [TaskController::class, 'edit']
-)->name('tasks.edit');
-
 Route::post(
      '/destroy/{id}',
     [TaskController::class, 'destroy']
 )->name('tasks.destroy');
 
+Route::delete(
+    '/destroy/{id}',
+   [TaskController::class, 'delete']
+)->name('tasks.delete');
+
+ Route::get(
+    'edit/{id}',
+    [TaskController::class, 'edit']
+)->name('tasks.edit');
+
 Route::post(
-    '/{id}/edit',
+    '/update/{id}',
     [TaskController::class, 'update']
 )->name('tasks.update');
    

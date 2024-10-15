@@ -25,6 +25,21 @@ class TaskController extends Controller
             }
     }
 
+    public function update($id)
+    {
+        $task = Task::find($id);
+            if ($task === null) {
+                return "User ID niet gevonden";
+            } else {
+                $task->update(
+                    [
+                        'description' => $_POST["description"]
+                    ]
+                );
+            }
+            return redirect('/');
+    }
+
     public function create()
     {
         // return $_POST["name"];
@@ -47,8 +62,9 @@ class TaskController extends Controller
 
     }
 
-    public function update()
+    public function delete($id)
     {
+        echo "testing";
     }
 
 }

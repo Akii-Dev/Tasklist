@@ -14,8 +14,9 @@
     <div class="w-96 flex mx-auto my-32 mb-96">
     <div class="bg-white/[.75] py-8 mx-auto  sm:rounded-lg backdrop-blur-[1px] shadow-2xl shadow-white/50 p-8">
         <h1 class="text-3xl">Edit Task</h1>
-        <form action="POST" action="update" >
-            <div class="flex">
+        <form action="/update/{{$task["id"]}}" method="POST">
+            @csrf
+            <div class="flex"> 
         <input id="description" name="description" type="text" placeholder="Add a new task" value="{{$task["description"]}}"class="">
         <input class="bg-red-500" type="button" value="submit">
     </div>
