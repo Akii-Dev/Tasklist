@@ -17,16 +17,17 @@
     <div class="mt-8 sm:mx-auto w-full sm:w-3/5 p-12">
 
         <div class="bg-white/[.75] py-8 rounded px-10 backdrop-blur-[1px] shadow-2xl">
-            <H1 class="text-3xl font-medium">Todo list</H1>
+            <H1 class="text-3xl font-medium font-moto">Todo list</H1>
             <form class="space-y-6" method="POST" action="create">
                 @csrf <!-- {{ csrf_field() }} -->
-                <div>
-                    <div class="mt-2">
+                    <div class="mt-2 flex w-full mx-auto h-full mb-20">
                         <input id="description" name="description" type="text" placeholder="Add a new task"
                             value="" required
-                            class="h-16 block w-full rounded text-xl border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-900 sm:leading-6">
+                            class="h-16 block w-full rounded-l text-xl outline outline-1 py-1.5 px-1 text-gray-900 shadow-sm  sm:leading-6">
+                            <button class="bg-lime-300 rounded-r outline outline-1 outline-lime-600 max-h-16 px-4">
+                                <img class="h-10" src="/images/submit.svg" alt="">
+                            </button>
                     </div>
-                </div>
 
             </form>
             {{-- gebruik js voor de checkbox items  --}}
@@ -64,7 +65,7 @@
                 Clear completed
               </button>
               <button class="bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-4 rounded mx-4" id="deleteButton" onclick="deleteSelected()">
-                Delete selected 
+                Delete selected
               </button>
             </div>
         </div>

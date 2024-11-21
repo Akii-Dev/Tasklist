@@ -11,19 +11,25 @@
 
 <body class="bg-gradient-to-br from-lime-300 to-rose-300 bg-cover bg-no-repeat h-max">
     {{-- <p>(@dump($task))</p> --}}
-    <div class="w-96 flex mx-auto my-32 mb-96">
-    <div class="bg-white/[.75] py-8 mx-auto  sm:rounded-lg backdrop-blur-[1px] shadow-2xl shadow-white/50 p-8">
-        <h1 class="text-3xl">Edit Task</h1>
-        <form action="/update/{{$task["id"]}}" method="POST">
+    <div
+        class="bg-white/[.75] py-8 mx-auto  sm:rounded-lg backdrop-blur-[1px] shadow-2xl shadow-white/50 p-8 w-2/3 my-48">
+        <h1 class="text-3xl pb-8">Edit Task</h1>
+        <form action="/update/{{ $task['id'] }}" method="POST">
             @csrf
-            <div class="flex"> 
-        <input id="description" name="description" type="text" placeholder="Add a new task" value="{{$task["description"]}}"class="">
-        <input class="bg-red-500" type="button" value="submit">
+            <div class="mt-2 flex w-full mx-auto mb-12">
+                <input id="description" name="description" type="text" placeholder="Add a new task"
+                    value="{{ $task['description'] }}"class="h-12 block w-full rounded-l text-xl outline outline-1 py-1.5 px-1 text-gray-900 shadow-sm  sm:leading-6">
+                <button class="bg-lime-300 rounded-r outline outline-1 outline-lime-600 max-h-16 px-4">
+                    <img class="h-10" src="/images/submit.svg" alt="">
+                </button>
+            </div>
+            <div class="mt-4">
+        </form>
+        <a href="/" class="mt-16 p-2 bg-rose-300 rounded-sm p-1 m-1 text-white shadow-xl">Back</a>
     </div>
-    </form>
-        <a href="/" class="mt-12 bg-rose-300 rounded-sm p-1 m-1 text-white shadow-xl">Back</a>
     </div>
-</div>
+    </div>
 
 </body>
+
 </html>
