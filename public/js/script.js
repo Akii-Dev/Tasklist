@@ -21,7 +21,6 @@ function setupCheckbox() {
             } else if (checked === false) {
                 document.getElementById(`taskp${todoid}`).classList.remove("line-through");
             }
-            // de text css met of zonder linethrough
 
         })
     });
