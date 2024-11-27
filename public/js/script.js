@@ -1,4 +1,3 @@
-console.log("test")
 
 function setupCheckbox() {
     const todos = document.querySelectorAll("#todos-form input[type='checkbox']")
@@ -17,11 +16,10 @@ function setupCheckbox() {
                     checked: checked
                 })
             });
-            console.log(checked);
-            if (checked == true) {
-                `taskp${todoid}`.classList.add("line-through");
-            } elseif (checked == false); {
-                `taskp${todoid}`.classList.remove("line-through");
+            if (checked === true) {
+                document.getElementById(`taskp${todoid}`).classList.add("line-through");
+            } else if (checked === false) {
+                document.getElementById(`taskp${todoid}`).classList.remove("line-through");
             }
             // de text css met of zonder linethrough
 

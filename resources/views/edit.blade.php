@@ -18,14 +18,14 @@
             @csrf
             <div class="mt-2 flex w-full mx-auto mb-12">
                 <input id="description" name="description" type="text" placeholder="Add a new task"
-                    value="{{ $task['description'] }}"class="h-12 block w-full rounded-l text-xl outline outline-1 py-1.5 px-1 text-gray-900 shadow-sm  sm:leading-6">
+                    value="{{ $task['description'] }}"class="h-12 block w-full rounded-l text-xl outline outline-1 py-1.5 px-1 text-gray-900 shadow-sm  sm:leading-6" required>
                 <button class="bg-lime-300 rounded-r outline outline-1 outline-lime-600 max-h-16 px-4">
                     <img class="h-10" src="/images/submit.svg" alt="">
                 </button>
             </div>
             <div class="mt-4">
         </form>
-        <a href="/" class="mt-16 p-2 bg-rose-300 rounded-sm p-1 m-1 text-white shadow-xl">Back</a>
+        <a href="/" class="mt-16 p-2 bg-rose-300 rounded-sm m-1 text-white shadow-xl">Back</a>
     </div>
     </div>
     </div>

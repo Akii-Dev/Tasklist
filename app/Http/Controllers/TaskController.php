@@ -11,7 +11,7 @@ class TaskController extends Controller
 
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::orderBy('created_at', 'desc')->get();
         return view('index', ['tasks' => $tasks]);
     }
 
