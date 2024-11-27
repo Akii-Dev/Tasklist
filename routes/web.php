@@ -36,3 +36,8 @@ Route::post(
     '/create',
     [TaskController::class, 'create']
 )->name('tasks.create');
+
+Route::post(
+    '/toggle/{id}',
+    [TaskController::class, 'toggle']
+)->name('tasks.toggle');

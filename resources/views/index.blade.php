@@ -12,13 +12,13 @@
 </head>
 
 <body class="bg-gradient-to-br from-lime-300 to-rose-300 bg-cover bg-no-repeat h-max">
-    <p>(@dump($tasks))</p>
+    
     {{-- <body class="bg-gradient-to-br from-lime-600 to-rose-600 bg-cover bg-no-repeat h-max"> --}}
     <div class="mt-8 sm:mx-auto w-full sm:w-3/5 p-12">
 
         <div class="bg-white/[.75] py-8 rounded px-10 backdrop-blur-[1px] shadow-2xl">
             <H1 class="text-3xl font-medium font-moto">Todo list</H1>
-            <form class="space-y-6" method="POST" action="create">
+            <form  class="space-y-6" method="POST" action="create">
                 @csrf <!-- {{ csrf_field() }} -->
                     <div class="mt-2 flex w-full mx-auto h-full mb-20">
                         <input id="description" name="description" type="text" placeholder="Add a new task"
@@ -31,15 +31,18 @@
 
             </form>
             {{-- gebruik js voor de checkbox items  --}}
+            <div id="todos-form">
             @foreach ($tasks as $task)
                 <div class="p-1 flex justify-between px-4 mx-4 py-2 my-4 bg-red bg-red-100 rounded shadow-sm">
                     <div class="flex">
-                        <input class="accent-pink-500 p-4 m-2" type="checkbox" name="{{$task["id"]}}" id="{{$task["id"]}}">
                         @if ($task['is_completed'] == 1)
-                            <p class="line-through">
+                        <input class="accent-pink-500 p-4 m-2" type="checkbox" id="{{$task['id']}}" checked>
+                            <p id="taskp{{$task["id"]}}" class="line-through">
                             @else
-                            <p>
+                            <input class="accent-pink-500 p-4 m-2" type="checkbox" id="{{$task['id']}}">
+                            <p id="taskp{{$task["id"]}}">
                         @endif
+
                         {{ $task['description'] }}</p>
                     </div>
                     <div class="flex items-center justify-between py-auto">
@@ -60,7 +63,8 @@
                     </div>
                 </div>
             @endforeach
-            <div class="flex">
+            </div>
+            <div class="flex hidden">
             <button class="bg-rose-400 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded mx-4">
                 Clear completed
               </button>

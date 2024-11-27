@@ -40,6 +40,23 @@ class TaskController extends Controller
             return redirect('/');
     }
 
+    public function toggle(Request $request, $id)
+    {
+        $task = Task::find($id);
+        if ($task === null) {
+            return "User ID niet gevonden";
+        } else {
+            $data = $request->input("checked");
+
+            $task->update(
+                [
+                    'is_completed' => $data
+                ]
+            );
+            return;
+        }
+    }
+
     public function create()
     {
         // return $_POST["name"];
@@ -62,9 +79,5 @@ class TaskController extends Controller
 
     }
 
-    public function delete($id)
-    {
-        echo "testing";
-    }
 
 }
