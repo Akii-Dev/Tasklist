@@ -72,6 +72,7 @@
                     Delete selected
                 </button>
             </div>
+            {{$tasks->links()}}
         </div>
     </div>
 </body>
