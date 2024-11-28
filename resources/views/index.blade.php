@@ -21,47 +21,48 @@
                 @csrf <!-- {{ csrf_field() }} -->
                 <div class="mt-2 flex w-full mx-auto h-full mb-20">
                     <input id="description" name="description" type="text" placeholder="Add a new task"
-                        value="" required
-                        class="h-16 block w-full rounded-l text-xl outline outline-1 py-1.5 px-1 text-gray-900 shadow-sm  sm:leading-6">
+                    value="" required
+                    class="h-16 block w-full rounded-l text-xl outline outline-1 py-1.5 px-1 text-gray-900 shadow-sm  sm:leading-6">
                     <button class="bg-lime-300 rounded-r outline outline-1 outline-lime-600 max-h-16 px-4">
                         <img class="h-10" src="/images/submit.svg" alt="">
                     </button>
                 </div>
-
+                
             </form>
             {{-- gebruik js voor de checkbox items  --}}
-            <div id="todos-form">
+            <div id="todos-form" class="mt-4">
                 @foreach ($tasks as $task)
-                    <div class="p-1 flex justify-between px-4 mx-4 py-2 my-4 bg-red bg-red-100 rounded shadow-sm">
-                        <div class="flex">
-                            @if ($task['is_completed'] == 1)
-                                <input class="accent-pink-500 p-4 m-2" type="checkbox" id="{{ $task['id'] }}" checked>
-                                <p id="taskp{{ $task['id'] }}" class="line-through">
-                                @else
-                                    <input class="accent-pink-500 p-4 m-2" type="checkbox" id="{{ $task['id'] }}">
+                <div class="p-1 flex justify-between px-4 mx-4 py-2 my-4 bg-red bg-red-100 rounded shadow-sm">
+                    <div class="flex">
+                        @if ($task['is_completed'] == 1)
+                        <input class="accent-pink-500 p-4 m-2" type="checkbox" id="{{ $task['id'] }}" checked>
+                        <p id="taskp{{ $task['id'] }}" class="line-through">
+                            @else
+                            <input class="accent-pink-500 p-4 m-2" type="checkbox" id="{{ $task['id'] }}">
                                 <p id="taskp{{ $task['id'] }}">
-                            @endif
+                                    @endif
+                                    
+                                    {{ $task['description'] }}</p>
+                                </div>
+                                <div class="flex items-center justify-between py-auto">
+                                    <a href="edit/{{ $task['id'] }}">
+                                        <img class="h-full w-6 p-auto mr-2" src="/images/edit.svg" alt="">
+                                    </a>
+                                    <form action="destroy/{{ $task['id'] }}" method="POST">
+                                        @csrf
+                                        <button>
+                                            <img class="h-6 w-6 p-auto pointer-events-none" src="/images/trash.png"
+                                            alt="">
+                                            
+                                        </button>
 
-                            {{ $task['description'] }}</p>
-                        </div>
-                        <div class="flex items-center justify-between py-auto">
-                            <a href="edit/{{ $task['id'] }}">
-                                <img class="h-full w-6 p-auto mr-2" src="/images/edit.svg" alt="">
-                            </a>
-                            <form action="destroy/{{ $task['id'] }}" method="POST">
-                                @csrf
-                                <button>
-                                    <img class="h-6 w-6 p-auto pointer-events-none" src="/images/trash.png"
-                                        alt="">
 
-                                </button>
-
-
-                            </form>
-
-                        </div>
-                    </div>
+                                    </form>
+                                    
+                                </div>
+                            </div>
                 @endforeach
+                {{$tasks->links()}}
             </div>
             <div class="hidden">
                 <button class="bg-rose-400 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded mx-4">
@@ -72,7 +73,6 @@
                     Delete selected
                 </button>
             </div>
-            {{$tasks->links()}}
         </div>
     </div>
 </body>
