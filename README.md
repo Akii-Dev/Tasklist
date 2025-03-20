@@ -37,5 +37,5 @@ $ php artisan serve
 
 
 # Images
-![index](https://github.com/Akii-Dev/Library/blob/main/public/images/todoindex.png?raw=true)
-![edit](https://github.com/Akii-Dev/Library/blob/main/public/images/edittask.png?raw=true)
+![index](https://github.com/Akii-Dev/Tasklist/blob/main/public/images/todoindex.png?raw=true)
+![edit](https://github.com/Akii-Dev/Tasklist/blob/main/public/images/edittask.png?raw=true)
